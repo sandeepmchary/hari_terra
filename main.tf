@@ -11,7 +11,7 @@ terraform{
     }
 }
 resource "aws_vpc" "javahome" {
-  #count = 0
+  count = 0
   cidr_block = "${var.vpc_cidr}"
   instance_tenancy = "default"
   tags = {
