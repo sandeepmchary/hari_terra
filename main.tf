@@ -14,8 +14,8 @@ resource "aws_vpc" "javahome" {
   cidr_block = "${var.vpc_cidr}"
   instance_tenancy = "default"
   tags = {
-    "Name" = "JavaHOme"
-    "Env" = "Dev"
+    "Name" = "JavaHOmeVPC"
+    "Env" = "${terraform.workspace}"
   }
 }
 resource "aws_subnet" "javahomesubnet" {
