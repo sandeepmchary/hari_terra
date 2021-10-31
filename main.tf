@@ -18,7 +18,7 @@ resource "aws_vpc" "javahome" {
     "Env" = "Dev"
   }
 }
-resource "aws_subnet" "javahomesubnet" {
+/*resource "aws_subnet" "javahomesubnet" {
   vpc_id = aws_vpc.javahome.id
   cidr_block = "10.0.0.0/24"
   availability_zone = "us-east-2b"
@@ -28,6 +28,8 @@ resource "aws_subnet" "javahomesubnet1" {
   cidr_block = "10.0.1.0/24"
   availability_zone = "us-east-2c"
 }
+*/
+
 output "javahomecidr" {
   value = "${aws_vpc.javahome.cidr_block}"
   }
