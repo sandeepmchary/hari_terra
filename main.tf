@@ -20,12 +20,12 @@ resource "aws_vpc" "javahome" {
 }
 resource "aws_subnet" "javahomesubnet" {
   vpc_id = aws_vpc.javahome.id
-  cidr_block = "10.0.0.0/24"
+  cidr_block = "10.0.1.0/24"
   availability_zone = "us-east-2b"
 }
 resource "aws_subnet" "javahomesubnet1" {
   vpc_id = aws_vpc.javahome.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = "10.0.2.0/24"
   availability_zone = "us-east-2c"
 }
 
