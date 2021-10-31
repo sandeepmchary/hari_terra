@@ -11,6 +11,7 @@ terraform{
     }
 }
 resource "aws_vpc" "javahome" {
+  count = 0
   cidr_block = "${var.vpc_cidr}"
   instance_tenancy = "default"
   tags = {
@@ -18,6 +19,7 @@ resource "aws_vpc" "javahome" {
     "Env" = "${terraform.workspace}"
   }
 }
+/*
 resource "aws_subnet" "javahomesubnet" {
   vpc_id = aws_vpc.javahome.id
   cidr_block = "10.0.1.0/24"
@@ -36,4 +38,4 @@ output "javahomecidr" {
 output "Vpc_id_value" {
   value = "${aws_vpc.javahome.id}"
 }
-
+*/
