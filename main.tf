@@ -10,15 +10,7 @@ terraform{
         dynamodb_table = "javahomesam" 
     }
 }
-resource "aws_vpc" "javahome" {
-  count = "${terraform.workspace == "dev" ? 0 : 1}"
-  cidr_block = "${var.vpc_cidr}"
-  instance_tenancy = "default"
-  tags = {
-    "Name" = "JavaHOmeVPC"
-    "Env" = "${terraform.workspace}"
-  }
-}
+
 /*
 resource "aws_subnet" "javahomesubnet" {
   vpc_id = aws_vpc.javahome.id
