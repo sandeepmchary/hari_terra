@@ -7,7 +7,7 @@ resource "aws_vpc" "javahome" {
   cidr_block = "${var.vpc_cidr}"
   instance_tenancy = "default"
   tags = {
-    "Name" = "${locals.vpc_name}"
+    "Name" = "${local.vpc_name}"
     "Env" = "${terraform.workspace}"
   }
 }
