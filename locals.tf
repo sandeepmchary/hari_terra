@@ -1,5 +1,5 @@
 locals {
-  vpc_name = "${terraform.workspace == "dev" ? javaHomeVPC-dev : javahomevpc-prod }"
+  vpc_name = "${terraform.workspace == "dev" ? "javaHomeVPC-dev" : "javahomevpc-prod" }"
 }
 
 resource "aws_vpc" "javahome" {
