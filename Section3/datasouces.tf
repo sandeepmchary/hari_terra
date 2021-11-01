@@ -1,3 +1,3 @@
-data "aws_availability_zone" "azones" {
+data "aws_availability_zones" "azones" {
   
 }

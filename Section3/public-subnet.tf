@@ -8,7 +8,7 @@
 # 10.0.1.0/24 --- 10.0.2.0/24
 
 locals {
-  azones_names = "${data.aws_availability_zone.azones.names}"
+  azones_names = "${data.aws_availability_zones.azones.names}"
 }
 
 resource "aws_subnet" "public" {
