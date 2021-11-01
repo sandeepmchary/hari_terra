@@ -4,3 +4,9 @@ output "vpc_cidr" {
 output "aws_subnet" {
   value = aws_subnet.public
 }
+output "vpc_id" {
+  value = aws_vpc.myjavavpc.id
+}
+output "vpc_owner_id" {
+  value = aws_vpc.myjavavpc.owner_id
+}
