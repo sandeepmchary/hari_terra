@@ -21,3 +21,10 @@ resource "aws_subnet" "public" {
     "Name" = "PublicSubnet=${count.index + 1}"
   }
 }
+
+resource "aws_internet_gateway" "awsigw" {
+  vpc_id = "${aws_vpc.myjavavpc.id}"
+  tags = {
+    "Name" = "JavaHomeIGW"
+  }
+}
