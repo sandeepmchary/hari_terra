@@ -2,7 +2,7 @@ output "vpc_cidr" {
   value = var.vpc_cidr
 }
 output "aws_subnet" {
-  value = aws_subnet.public[count.index]
+  value = aws_subnet.public[count.index + 1]
 }
 output "vpc_id" {
   value = aws_vpc.myjavavpc.id
