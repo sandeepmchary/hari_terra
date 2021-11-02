@@ -31,12 +31,10 @@ resource "aws_internet_gateway" "awsigw" {
 }
 resource "aws_route_table" "PublicRT" {
   vpc_id = "${aws_vpc.myjavavpc.id}"
-  route = [ 
-      {
+  route {
           cidr_block = "0.0.0.0/0"
           gateway_id = "${aws_internet_gateway.awsigw.id}"
       }
-   ]
    tags = {
      "Name" = "PublicRT"
    }
