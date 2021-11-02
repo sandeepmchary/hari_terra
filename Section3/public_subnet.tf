@@ -9,6 +9,7 @@
 
 locals {
   azones_names = "${data.aws_availability_zones.azones.names}"
+  pub_sub_rt_assoc = "${aws_subnet.public.*.id}"
 }
 
 resource "aws_subnet" "public" {
@@ -27,4 +28,29 @@ resource "aws_internet_gateway" "awsigw" {
   tags = {
     "Name" = "JavaHomeIGW"
   }
+}
+resource "aws_route_table" "PublicRT" {
+  vpc_id = "${aws_vpc.myjavavpc.id}"
+  route = [ 
+      {
+          cidr_block = "0.0.0.0/0"
+          gateway_id = "${aws_internet_gateway.awsigw.id}"
+      }
+   ]
+   tags = {
+     "Name" = "PublicRT"
+   }
+}
+resource "aws_route_table_association" "publicrtassoc" {
+# get all subnet id here and loop for creation
+  count = local(length(azones_names))
+  # public.id is only for one subnet
+  # our case is multiple subnets we access them using *
+  # this return list of subnet id's we can access one subnet at a time
+  # count.index
+  # subnet_id = "${aws_subnet.public.id}"
+  # * for multiple list
+  #  
+  subnet_id = "${local.pub_sub_rt_assoc[count.index]}"
+  route_table_id = "${aws_route_table.PublicRT.id}"
 }
