@@ -10,6 +10,7 @@
 locals {
   azones_names = "${data.aws_availability_zones.azones.names}"
   pub_sub_rt_assoc = "${aws_subnet.public.*.id}"
+  cidr_block_count = count.index + length(local.azones_names)
 }
 
 resource "aws_subnet" "public" {
