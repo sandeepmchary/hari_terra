@@ -41,7 +41,7 @@ resource "aws_route_table" "PublicRT" {
 }
 resource "aws_route_table_association" "publicrtassoc" {
 # get all subnet id here and loop for creation
-  count = local(length(azones_names))
+  count = "${local(length(azones_names))}"
   # public.id is only for one subnet
   # our case is multiple subnets we access them using *
   # this return list of subnet id's we can access one subnet at a time
